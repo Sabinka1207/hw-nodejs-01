@@ -12,7 +12,6 @@ async function listContacts() {
 }
 
 async function getContactById(contactId) {
-  console.log(typeof contactId)
   const allContacts = await listContacts();
   const contact = allContacts.filter(item => item.id === `${contactId}`);
   if (contact.length === 0 ) {
@@ -28,7 +27,6 @@ async function removeContact(contactId) {
     return null;
   }
   await fs.writeFile(filePath, JSON.stringify(newContactList));
-  console.log(newContactList)
   return newContactList;
 }
 
